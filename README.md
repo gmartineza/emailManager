@@ -19,6 +19,7 @@ Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
     - Remitente.
     - Para (se debe poder enviar a múltiples contactos).
 3. Un Contacto es un objeto con:
+
     - Nombre.
     - Email.
 4. Al enviar un correo escrito, este se deberá mover a la Bandeja de Enviados.
@@ -27,3 +28,7 @@ Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
     2. El usuario debe poder buscar correos en la bandeja entrada de manera análoga al funcionamiento de las carpetas.
     3. Los filtros deben tener un nombre.
     4. Se debe poder tene 5 filtros generados (3 de ellos complejos, que puedan buscar 2 o más campos simultáneamente).
+
+## UML
+
+![emailManagerUML1](https://github.com/gmartineza/emailManager/assets/68785609/aa71c4d5-2557-4325-b598-cef73746994f)
