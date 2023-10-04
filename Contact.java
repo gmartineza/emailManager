@@ -5,6 +5,7 @@ public class Contact {
     String name;
     String surname;
     String emailAddress;
+
     public Contact(String emailAdress, String name, String surname){
         if (isValidEmailAddress(emailAdress)){
             this.emailAddress = emailAdress;
@@ -31,11 +32,13 @@ public class Contact {
     public String getSurname() {
         return surname;
     }
-    public void setEmailAdress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-    public String getEmailAdress() {
+
+    public String getEmailAddress() {
         return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     private boolean isValidEmailAddress(String emailAddress){
