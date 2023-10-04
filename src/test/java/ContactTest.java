@@ -1,6 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-import emailmanager.*;
+import ucp.gmartineza.emailmanager.*;
 public class ContactTest {
     @Test
     public void InstantiateContactTest(){

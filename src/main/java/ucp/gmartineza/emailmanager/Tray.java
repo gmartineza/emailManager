@@ -1,4 +1,4 @@
-package emailmanager;
+package ucp.gmartineza.emailmanager;
 
 import java.util.List;
 
