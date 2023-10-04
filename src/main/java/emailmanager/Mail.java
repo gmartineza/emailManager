@@ -1,3 +1,5 @@
+package emailmanager;
+
 import java.util.List;
 
 public class Mail {
