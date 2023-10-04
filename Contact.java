@@ -1,12 +1,18 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Contact {
     String name;
     String surname;
     String emailAddress;
-
-    public Contact(String name, String surname, String emailAdress){
+    public Contact(String emailAdress, String name, String surname){
+        if (isValidEmailAddress(emailAdress)){
+            this.emailAddress = emailAdress;
+        } else {
+            throw new IllegalArgumentException("getWidth(): Piece orientation is not set or is empty.");
+        }
         this.name = name;
         this.surname = surname;
-        this.emailAddress = emailAdress;
     }
 
     public Contact(String emailAdress){
@@ -30,5 +36,12 @@ public class Contact {
     }
     public String getEmailAdress() {
         return emailAddress;
+    }
+
+    private boolean isValidEmailAddress(String emailAddress){
+        String emailAdressRegexPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(emailAdressRegexPattern);
+        Matcher matcher = pattern.matcher(emailAddress);
+        return matcher.matches();
     }
 }
