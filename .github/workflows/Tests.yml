@@ -35,8 +35,8 @@ jobs:
     
       - name: Commit and Push Generated Files
         run: |
-          git config --global user.email "stefanomerinoderui@gmail.com"
-          git config --global user.name "Billones142"
+          git config --global user.email "gabymartinezalarcon@gmail.com"
+          git config --global user.name "gmartineza"
           
           git checkout -- src/
           rm -rf src
