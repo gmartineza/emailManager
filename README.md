@@ -8,7 +8,7 @@ Proyecto presentado como Trabajo Práctico 1 en el Ciclo Lectivo 2023 para la ma
 2. Presentación del documento descriptivo con diagrama de completo de clases utilizadas.
 3. Enlace a repositorio.
 4. Ejecución automática de tests mediante CI (integración continua) mediante Github Actions.
-
+   [![Tests](https://github.com/gmartineza/emailManager/actions/workflows/Tests.yml/badge.svg)](https://github.com/gmartineza/emailManager/actions/workflows/Tests.yml)
 ## Consigna
 
 Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
