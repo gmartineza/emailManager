@@ -8,46 +8,51 @@ public class Contact {
     String surname;
     String emailAddress;
 
-<span class="fc" id="L11">    public Contact(String emailAdress, String name, String surname){</span>
-<span class="pc bpc" id="L12" title="1 of 2 branches missed.">        if (isValidEmailAddress(emailAdress)){</span>
-<span class="fc" id="L13">            this.emailAddress = emailAdress;</span>
-        } else {
-<span class="nc" id="L15">            throw new IllegalArgumentException(&quot;getWidth(): Piece orientation is not set or is empty.&quot;);</span>
+<span class="fc" id="L11">    public Contact(String emailaddress, String name, String surname){</span>
+<span class="pc bpc" id="L12" title="1 of 2 branches missed.">        if (isValidEmailAddress(emailaddress)){</span>
+<span class="fc" id="L13">            setEmailAddress(emailaddress);</span>
+<span class="fc" id="L14">        } else {</span>
+<span class="nc" id="L15">            throw new IllegalArgumentException(&quot;Contact: emailAddress is not valid.&quot;);</span>
         }
-<span class="fc" id="L17">        this.name = name;</span>
-<span class="fc" id="L18">        this.surname = surname;</span>
+<span class="fc" id="L17">        setName(name);</span>
+<span class="fc" id="L18">        setSurname(surname);;</span>
 <span class="fc" id="L19">    }</span>
 
-<span class="nc" id="L21">    public Contact(String emailAdress){</span>
-<span class="nc" id="L22">        this.emailAddress = emailAdress;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L21">    public Contact(String emailaddress){</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (isValidEmailAddress(emailaddress)){</span>
+<span class="fc" id="L23">            setEmailAddress(emailaddress);</span>
+<span class="fc" id="L24">        } else {</span>
+<span class="fc" id="L25">            throw new IllegalArgumentException(&quot;Contact: emailAddress is not valid.&quot;);</span>
+        }
+<span class="fc" id="L27">        setEmailAddress(emailaddress);</span>
+<span class="fc" id="L28">    }</span>
 
     public String getName() {
-<span class="nc" id="L26">        return name;</span>
+<span class="nc" id="L31">        return name;</span>
     }
     public void setName(String name) {
-<span class="nc" id="L29">        this.name = name;</span>
-<span class="nc" id="L30">    }</span>
+<span class="fc" id="L34">        this.name = name;</span>
+<span class="fc" id="L35">    }</span>
     public void setSurname(String surname) {
-<span class="nc" id="L32">        this.surname = surname;</span>
-<span class="nc" id="L33">    }</span>
+<span class="fc" id="L37">        this.surname = surname;</span>
+<span class="fc" id="L38">    }</span>
     public String getSurname() {
-<span class="nc" id="L35">        return surname;</span>
+<span class="nc" id="L40">        return surname;</span>
     }
 
     public String getEmailAddress() {
-<span class="nc" id="L39">        return emailAddress;</span>
+<span class="nc" id="L44">        return emailAddress;</span>
     }
 
     public void setEmailAddress(String emailAddress) {
-<span class="nc" id="L43">        this.emailAddress = emailAddress;</span>
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L48">        this.emailAddress = emailAddress;</span>
+<span class="fc" id="L49">    }</span>
 
     private boolean isValidEmailAddress(String emailAddress){
-<span class="fc" id="L47">        String emailAdressRegexPattern = &quot;^[A-Za-z0-9+_.-]+@(.+)$&quot;;</span>
-<span class="fc" id="L48">        Pattern pattern = Pattern.compile(emailAdressRegexPattern);</span>
-<span class="fc" id="L49">        Matcher matcher = pattern.matcher(emailAddress);</span>
-<span class="fc" id="L50">        return matcher.matches();</span>
+<span class="fc" id="L52">        String emailaddressRegexPattern = &quot;^[A-Za-z0-9+_.-]+@(.+)$&quot;;</span>
+<span class="fc" id="L53">        Pattern pattern = Pattern.compile(emailaddressRegexPattern);</span>
+<span class="fc" id="L54">        Matcher matcher = pattern.matcher(emailAddress);</span>
+<span class="fc" id="L55">        return matcher.matches();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
