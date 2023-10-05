@@ -4,9 +4,16 @@ import java.util.List;
 
 public class Mail {
     Contact remitent;
+    List<Contact> destinatary;
     String subject;
     String content;
-    List<Contact> destinatary;
+
+    public Mail(Contact remitent, List<Contact>destinatary, String subject, String content){
+        setRemitent(remitent);
+        setDestinatary(destinatary);
+        setSubject(subject);
+        setContent(content);
+    }
 
     public Contact getRemitent() {
         return remitent;

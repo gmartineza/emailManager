@@ -14,5 +14,6 @@ public class ContactTest {
     @Test (expected = IllegalArgumentException.class)
     public void InvalidContactTest(){
         Contact contact = new Contact("google.com");
+        assertNotNull(contact);
     }
 }
