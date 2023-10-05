@@ -8,18 +8,18 @@ public class Contact {
     String surname;
     String emailAddress;
 
-    public Contact(String emailAdress, String name, String surname){
-        if (isValidEmailAddress(emailAdress)){
-            this.emailAddress = emailAdress;
+    public Contact(String emailaddress, String name, String surname){
+        if (isValidEmailAddress(emailaddress)){
+            setEmailAddress(emailaddress);
         } else {
-            throw new IllegalArgumentException("getWidth(): Piece orientation is not set or is empty.");
+            throw new IllegalArgumentException("Contact: emailAddress is not valid.");
         }
-        this.name = name;
-        this.surname = surname;
+        setName(name);
+        setSurname(surname);;
     }
 
-    public Contact(String emailAdress){
-        this.emailAddress = emailAdress;
+    public Contact(String emailaddress){
+        setEmailAddress(emailaddress);
     }
 
     public String getName() {
@@ -44,8 +44,8 @@ public class Contact {
     }
 
     private boolean isValidEmailAddress(String emailAddress){
-        String emailAdressRegexPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
-        Pattern pattern = Pattern.compile(emailAdressRegexPattern);
+        String emailaddressRegexPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(emailaddressRegexPattern);
         Matcher matcher = pattern.matcher(emailAddress);
         return matcher.matches();
     }
