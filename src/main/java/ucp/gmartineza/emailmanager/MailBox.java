@@ -2,7 +2,7 @@ package ucp.gmartineza.emailmanager;
 
 import java.util.List;
 
-public class Mailbox {
+public class MailBox {
     List<Contact> listOfContacts;
 
     public List<Contact> getListOfContacts() {
