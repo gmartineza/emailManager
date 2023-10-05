@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-emailmanager,ucp.gmartineza.emailmanager,Filter,3,0,0,0,1,0,1,0,1,0
-emailmanager,ucp.gmartineza.emailmanager,Contact,14,60,1,3,4,24,4,7,3,6
-emailmanager,ucp.gmartineza.emailmanager,Mail,31,0,0,0,13,0,9,0,9,0
-emailmanager,ucp.gmartineza.emailmanager,MailBox,10,0,0,0,4,0,3,0,3,0
-emailmanager,ucp.gmartineza.emailmanager,Mailman,3,0,0,0,1,0,1,0,1,0
-emailmanager,ucp.gmartineza.emailmanager,Tray,10,0,0,0,4,0,3,0,3,0
