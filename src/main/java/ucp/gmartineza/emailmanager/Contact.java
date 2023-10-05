@@ -19,6 +19,11 @@ public class Contact {
     }
 
     public Contact(String emailaddress){
+        if (isValidEmailAddress(emailaddress)){
+            setEmailAddress(emailaddress);
+        } else {
+            throw new IllegalArgumentException("Contact: emailAddress is not valid.");
+        }
         setEmailAddress(emailaddress);
     }
 
