@@ -10,4 +10,9 @@ public class ContactTest {
     assertNotNull(emailOnlyContact);
     assertNotEquals(fullContact, emailOnlyContact);
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void InvalidContactTest(){
+        Contact contact = new Contact("google.com");
+    }
 }
