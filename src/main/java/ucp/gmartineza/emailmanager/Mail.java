@@ -1,14 +1,14 @@
 package ucp.gmartineza.emailmanager;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Mail {
     Contact remitent;
-    List<Contact> destinatary;
+    ArrayList<Contact> destinatary;
     String subject;
     String content;
 
-    public Mail(Contact remitent, List<Contact>destinatary, String subject, String content){
+    public Mail(Contact remitent, ArrayList<Contact>destinatary, String subject, String content){
         setRemitent(remitent);
         setDestinatary(destinatary);
         setSubject(subject);
@@ -39,11 +39,11 @@ public class Mail {
         this.content = content;
     }
 
-    public List<Contact> getDestinatary() {
+    public ArrayList<Contact> getDestinatary() {
         return destinatary;
     }
 
-    public void setDestinatary(List<Contact> destinatary) {
+    public void setDestinatary(ArrayList<Contact> destinatary) {
         this.destinatary = destinatary;
     }
 }
