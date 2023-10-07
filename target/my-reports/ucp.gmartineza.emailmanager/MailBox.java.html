@@ -2,15 +2,29 @@
 
 import java.util.List;
 
-<span class="nc" id="L5">public class MailBox {</span>
-    List&lt;Contact&gt; listOfContacts;
+public class MailBox {
+    Contact mailBoxOwner;
+    List&lt;Mail&gt; mails;
 
-    public List&lt;Contact&gt; getListOfContacts() {
-<span class="nc" id="L9">        return listOfContacts;</span>
+    public Contact getMailBoxOwner() {
+<span class="nc" id="L10">        return mailBoxOwner;</span>
     }
 
-    public void setListOfContacts(List&lt;Contact&gt; listOfContacts) {
-<span class="nc" id="L13">        this.listOfContacts = listOfContacts;</span>
-<span class="nc" id="L14">    }</span>
+    public void setMailBoxOwner(Contact mailBoxOwner) {
+<span class="fc" id="L14">        this.mailBoxOwner = mailBoxOwner;</span>
+<span class="fc" id="L15">    }</span>
+
+    public List&lt;Mail&gt; getMails(){
+<span class="nc" id="L18">        return mails;</span>
+    }
+
+    public void setMails(List&lt;Mail&gt; mails) {
+<span class="fc" id="L22">        this.mails = mails;</span>
+<span class="fc" id="L23">    }</span>
+
+<span class="fc" id="L25">    public MailBox(Contact mailBoxOwner, List&lt;Mail&gt; mails){</span>
+<span class="fc" id="L26">        setMailBoxOwner(mailBoxOwner);</span>
+<span class="fc" id="L27">        setMails(mails);</span>
+<span class="fc" id="L28">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

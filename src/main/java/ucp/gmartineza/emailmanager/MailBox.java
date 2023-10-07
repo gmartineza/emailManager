@@ -3,13 +3,27 @@ package ucp.gmartineza.emailmanager;
 import java.util.List;
 
 public class MailBox {
-    List<Contact> listOfContacts;
+    Contact mailBoxOwner;
+    List<Mail> mails;
 
-    public List<Contact> getListOfContacts() {
-        return listOfContacts;
+    public Contact getMailBoxOwner() {
+        return mailBoxOwner;
     }
 
-    public void setListOfContacts(List<Contact> listOfContacts) {
-        this.listOfContacts = listOfContacts;
+    private void setMailBoxOwner(Contact mailBoxOwner) {
+        this.mailBoxOwner = mailBoxOwner;
+    }
+
+    public List<Mail> getMails(){
+        return mails;
+    }
+
+    private void setMails(List<Mail> mails) {
+        this.mails = mails;
+    }
+
+    public MailBox(Contact mailBoxOwner, List<Mail> mails){
+        setMailBoxOwner(mailBoxOwner);
+        setMails(mails);
     }
 }

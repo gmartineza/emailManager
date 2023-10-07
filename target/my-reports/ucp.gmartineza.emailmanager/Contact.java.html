@@ -11,7 +11,7 @@ public class Contact {
 <span class="fc" id="L11">    public Contact(String emailaddress, String name, String surname){</span>
 <span class="pc bpc" id="L12" title="1 of 2 branches missed.">        if (isValidEmailAddress(emailaddress)){</span>
 <span class="fc" id="L13">            setEmailAddress(emailaddress);</span>
-<span class="fc" id="L14">        } else {</span>
+        } else {
 <span class="nc" id="L15">            throw new IllegalArgumentException(&quot;Contact: emailAddress is not valid.&quot;);</span>
         }
 <span class="fc" id="L17">        setName(name);</span>
@@ -21,7 +21,7 @@ public class Contact {
 <span class="fc" id="L21">    public Contact(String emailaddress){</span>
 <span class="fc bfc" id="L22" title="All 2 branches covered.">        if (isValidEmailAddress(emailaddress)){</span>
 <span class="fc" id="L23">            setEmailAddress(emailaddress);</span>
-<span class="fc" id="L24">        } else {</span>
+        } else {
 <span class="fc" id="L25">            throw new IllegalArgumentException(&quot;Contact: emailAddress is not valid.&quot;);</span>
         }
 <span class="fc" id="L27">        setEmailAddress(emailaddress);</span>
