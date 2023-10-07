@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,7 +12,7 @@ public class MailTest {
     public void SendSingleDestinataryTest(){
         Contact remitent = new Contact("someone@mail.com");
         Contact destinatary = new Contact("otherone@mail.com");
-        ArrayList<Contact> destinataries = new ArrayList<Contact>();
+        List<Contact> destinataries = new ArrayList<Contact>();
         destinataries.add(destinatary);
         Mail mail = new Mail(remitent, destinataries, "subject", "content");
     
