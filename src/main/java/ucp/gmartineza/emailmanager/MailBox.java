@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MailBox {
-    Contact owner;
-    List<Mail> mails = new ArrayList<>();
-    boolean isInbox;
+    private Contact owner;
+    private List<Mail> mails = new ArrayList<>();
+    private boolean isInbox;
 
     public MailBox(Contact owner, List<Mail> mails, boolean isInbox){
         setOwner(owner);
@@ -43,7 +43,7 @@ public class MailBox {
         return isInbox;
     }
 
-    public void setIsInbox(boolean isInbox) {
+    private void setIsInbox(boolean isInbox) {
         this.isInbox = isInbox;
     }
 }

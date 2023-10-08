@@ -3,10 +3,10 @@ package ucp.gmartineza.emailmanager;
 import java.util.List;
 
 public class Mail {
-    Contact remitent;
-    List<Contact> destinatary;
-    String subject;
-    String content;
+    private Contact remitent;
+    private List<Contact> destinatary;
+    private String subject;
+    private String content;
 
     public Mail(Contact remitent, List<Contact>destinatary, String subject, String content){
         setRemitent(remitent);
@@ -22,15 +22,11 @@ public class Mail {
         setContent(content);
     }
 
-    private void addDestinatary(Contact destinatary) {
-        this.destinatary.add(destinatary);
-    }
-
     public Contact getRemitent() {
         return remitent;
     }
 
-    public void setRemitent(Contact remitent) {
+    private void setRemitent(Contact remitent) {
         this.remitent = remitent;
     }
 
@@ -38,7 +34,7 @@ public class Mail {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    private void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -46,7 +42,7 @@ public class Mail {
         return content;
     }
 
-    public void setContent(String content) {
+    private void setContent(String content) {
         this.content = content;
     }
 
@@ -54,7 +50,11 @@ public class Mail {
         return destinatary;
     }
 
-    public void setDestinatary(List<Contact> destinatary) {
+    private void setDestinatary(List<Contact> destinatary) {
         this.destinatary = destinatary;
+    }
+
+    private void addDestinatary(Contact destinatary) {
+        this.destinatary.add(destinatary);
     }
 }

@@ -29,7 +29,7 @@ public class Contact {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -37,7 +37,7 @@ public class Contact {
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress) {
+    private void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 

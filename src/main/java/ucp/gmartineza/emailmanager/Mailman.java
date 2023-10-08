@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mailman {
-    List<MailBox> mailBoxes = new ArrayList<>();
+    private List<MailBox> mailBoxes = new ArrayList<>();
 
     //public Mailman(MailBox mailBox){
     //    this.mailBoxes.add(mailBox);
