@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Filter {
+    // use `static` to call functions without instantiating
     public static Predicate<Mail> filterBySubject(String subject) {
         return mail -> mail.getSubject().contains(subject);
     }
@@ -13,11 +14,11 @@ public class Filter {
         return mail -> mail.getContent().contains(content);
     }
 
-    public static Predicate<Mail> filterByRemitentEmail(String emailAddress) {
+    public static Predicate<Mail> filterByRemitent(String emailAddress) {
         return mail -> mail.getRemitent().getEmailAddress().equals(emailAddress);
     }
 
-    public static Predicate<Mail> filterByDestinataryEmail(String emailAddress) {
+    public static Predicate<Mail> filterByDestinatary(String emailAddress) {
         return mail -> mail.getDestinatary().stream().anyMatch(contact -> contact.getEmailAddress().equals(emailAddress));
     }
 
@@ -30,14 +31,14 @@ public class Filter {
 
     public static Predicate<Mail> filterBySubjectAndRemitent(String subjectKeyword, String remitentEmail) {
         Predicate<Mail> subjectPredicate = filterBySubject(subjectKeyword);
-        Predicate<Mail> remitentPredicate = filterByRemitentEmail(remitentEmail);
+        Predicate<Mail> remitentPredicate = filterByRemitent(remitentEmail);
 
         return subjectPredicate.and(remitentPredicate);
     }
 
     public static Predicate<Mail> filterByContentAndRemitent(String contentKeyword, String remitentEmail) {
         Predicate<Mail> contentPredicate = filterByContent(contentKeyword);
-        Predicate<Mail> remitentPredicate = filterByRemitentEmail(remitentEmail);
+        Predicate<Mail> remitentPredicate = filterByRemitent(remitentEmail);
 
         return contentPredicate.and(remitentPredicate);
     }
