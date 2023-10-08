@@ -40,10 +40,15 @@ public class FilterTest {
                            new ArrayList<>(),
                            "Friday meeting",
                            "second content");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new ArrayList<>(),
+                           "Friday meeting",
+                           "second content");
 
         List<Mail> mails = new ArrayList<>();
         mails.add(m1);
         mails.add(m2);
+        mails.add(m3);
 
         List<Mail> filteredByContent = Filter.applyFilter(mails, Filter.filterByContent("content"));
 

@@ -15,6 +15,17 @@ public class Mail {
         setContent(content);
     }
 
+    public Mail(Contact remitent, Contact destinatary, String subject, String content){
+        setRemitent(remitent);
+        addDestinatary(destinatary);
+        setSubject(subject);
+        setContent(content);
+    }
+
+    private void addDestinatary(Contact destinatary) {
+        this.destinatary.add(destinatary);
+    }
+
     public Contact getRemitent() {
         return remitent;
     }
