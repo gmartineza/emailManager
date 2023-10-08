@@ -24,7 +24,7 @@ public class MailBoxTest {
         mails.add(mail1);
         mails.add(mail2);
 
-        MailBox outBox = new MailBox(remitent, mails);
+        MailBox outBox = new MailBox(remitent, mails, false);
         
         assertNotNull(outBox);
     }
