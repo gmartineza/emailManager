@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
     }
 
     public static Predicate&lt;Mail&gt; filterByContent(String content) {
-<span class="nc" id="L13">        return mail -&gt; mail.getContent().contains(content);</span>
+<span class="fc" id="L13">        return mail -&gt; mail.getContent().contains(content);</span>
     }
 
     public static Predicate&lt;Mail&gt; filterByRemitentEmail(String emailAddress) {

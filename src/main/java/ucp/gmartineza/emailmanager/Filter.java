@@ -21,10 +21,25 @@ public class Filter {
         return mail -> mail.getDestinatary().stream().anyMatch(contact -> contact.getEmailAddress().equals(emailAddress));
     }
 
-    public static Predicate<Mail> filterBySubjectAndContent(String subject, String content) {
-        Predicate<Mail> subjectPredicate = filterBySubject(subject);
-        Predicate<Mail> contentPredicate = filterByContent(content);
-        return subjectPredicate.and(contentPredicate);
+    public static Predicate<Mail> filterBySubjectOrContent(String keyword) {
+            Predicate<Mail> subjectPredicate = filterBySubject(keyword);
+            Predicate<Mail> contentPredicate = filterByContent(keyword);
+
+            return subjectPredicate.or(contentPredicate);
+    }
+
+    public static Predicate<Mail> filterBySubjectAndRemitent(String subjectKeyword, String remitentEmail) {
+        Predicate<Mail> subjectPredicate = filterBySubject(subjectKeyword);
+        Predicate<Mail> remitentPredicate = filterByRemitentEmail(remitentEmail);
+
+        return subjectPredicate.and(remitentPredicate);
+    }
+
+    public static Predicate<Mail> filterByContentAndRemitent(String contentKeyword, String remitentEmail) {
+        Predicate<Mail> contentPredicate = filterByContent(contentKeyword);
+        Predicate<Mail> remitentPredicate = filterByRemitentEmail(remitentEmail);
+
+        return contentPredicate.and(remitentPredicate);
     }
 
     public static List<Mail> applyFilter(List<Mail> mails, Predicate<Mail> filterPredicate) {

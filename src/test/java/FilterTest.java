@@ -12,8 +12,14 @@ import java.util.List;
 public class FilterTest {
     @Test
     public void filterBySubjectTest() {
-        Mail m1 = new Mail(new Contact("a@mail.com"), new ArrayList<>(), "Sunday meeting", "content");
-        Mail m2 = new Mail(new Contact("b@mail.com"), new ArrayList<>(), "Friday meeting", "second content");
+        Mail m1 = new Mail(new Contact("a@mail.com"),
+                           new ArrayList<>(),
+                           "Sunday meeting",
+                           "content");
+        Mail m2 = new Mail(new Contact("b@mail.com"),
+                           new ArrayList<>(),
+                           "Friday meeting",
+                           "second content");
 
         List<Mail> mails = new ArrayList<>();
         mails.add(m1);
@@ -26,8 +32,14 @@ public class FilterTest {
 
     @Test
     public void filterByContentTest(){
-        Mail m1 = new Mail(new Contact("a@mail.com"), new ArrayList<>(), "Sunday meeting", "content");
-        Mail m2 = new Mail(new Contact("b@mail.com"), new ArrayList<>(), "Friday meeting", "second content");
+        Mail m1 = new Mail(new Contact("a@mail.com"),
+                           new ArrayList<>(),
+                           "Sunday meeting",
+                           "content");
+        Mail m2 = new Mail(new Contact("b@mail.com"),
+                           new ArrayList<>(),
+                           "Friday meeting",
+                           "second content");
 
         List<Mail> mails = new ArrayList<>();
         mails.add(m1);
