@@ -4,18 +4,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Contact {
-    String name;
-    String surname;
-    String emailAddress;
+    private String name;
+    private String emailAddress;
 
-    public Contact(String emailaddress, String name, String surname){
+    public Contact(String emailaddress, String name){
         if (isValidEmailAddress(emailaddress)){
             setEmailAddress(emailaddress);
         } else {
             throw new IllegalArgumentException("Contact: emailAddress is not valid.");
         }
         setName(name);
-        setSurname(surname);;
     }
 
     public Contact(String emailaddress){
@@ -30,14 +28,9 @@ public class Contact {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
-    }
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-    public String getSurname() {
-        return surname;
     }
 
     public String getEmailAddress() {
