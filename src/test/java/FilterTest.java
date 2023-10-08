@@ -20,14 +20,20 @@ public class FilterTest {
                            new ArrayList<>(),
                            "Friday meeting",
                            "second content");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new ArrayList<>(),
+                           "Previa eterna",
+                           "reunión");
 
-        List<Mail> mails = new ArrayList<>();
-        mails.add(m1);
-        mails.add(m2);
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
 
-        List<Mail> expectedMails = Filter.applyFilter(mails, Filter.filterBySubject("meeting"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterBySubject("meeting"));
+        actualMails.remove(m3);
 
-        assertEquals(mails, expectedMails);
+        assertEquals(actualMails, expectedMails);
     }
 
     @Test
