@@ -21,14 +21,29 @@ import java.util.stream.Collectors;
 <span class="nc" id="L21">        return mail -&gt; mail.getDestinatary().stream().anyMatch(contact -&gt; contact.getEmailAddress().equals(emailAddress));</span>
     }
 
-    public static Predicate&lt;Mail&gt; filterBySubjectAndContent(String subject, String content) {
-<span class="nc" id="L25">        Predicate&lt;Mail&gt; subjectPredicate = filterBySubject(subject);</span>
-<span class="nc" id="L26">        Predicate&lt;Mail&gt; contentPredicate = filterByContent(content);</span>
-<span class="nc" id="L27">        return subjectPredicate.and(contentPredicate);</span>
+    public static Predicate&lt;Mail&gt; filterBySubjectOrContent(String keyword) {
+<span class="nc" id="L25">        Predicate&lt;Mail&gt; subjectPredicate = filterBySubject(keyword);</span>
+<span class="nc" id="L26">        Predicate&lt;Mail&gt; contentPredicate = filterByContent(keyword);</span>
+
+<span class="nc" id="L28">        return subjectPredicate.or(contentPredicate);</span>
+    }
+
+    public static Predicate&lt;Mail&gt; filterBySubjectAndRemitent(String subjectKeyword, String remitentEmail) {
+<span class="nc" id="L32">        Predicate&lt;Mail&gt; subjectPredicate = filterBySubject(subjectKeyword);</span>
+<span class="nc" id="L33">        Predicate&lt;Mail&gt; remitentPredicate = filterByRemitentEmail(remitentEmail);</span>
+
+<span class="nc" id="L35">        return subjectPredicate.and(remitentPredicate);</span>
+    }
+
+    public static Predicate&lt;Mail&gt; filterByContentAndRemitent(String contentKeyword, String remitentEmail) {
+<span class="nc" id="L39">        Predicate&lt;Mail&gt; contentPredicate = filterByContent(contentKeyword);</span>
+<span class="nc" id="L40">        Predicate&lt;Mail&gt; remitentPredicate = filterByRemitentEmail(remitentEmail);</span>
+
+<span class="nc" id="L42">        return contentPredicate.and(remitentPredicate);</span>
     }
 
     public static List&lt;Mail&gt; applyFilter(List&lt;Mail&gt; mails, Predicate&lt;Mail&gt; filterPredicate) {
-<span class="fc" id="L31">        return mails.stream().filter(filterPredicate).collect(Collectors.toList());</span>
+<span class="fc" id="L46">        return mails.stream().filter(filterPredicate).collect(Collectors.toList());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
