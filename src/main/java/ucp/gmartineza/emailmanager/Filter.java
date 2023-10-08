@@ -22,10 +22,10 @@ public class Filter {
     }
 
     public static Predicate<Mail> filterBySubjectOrContent(String keyword) {
-            Predicate<Mail> subjectPredicate = filterBySubject(keyword);
-            Predicate<Mail> contentPredicate = filterByContent(keyword);
+        Predicate<Mail> subjectPredicate = filterBySubject(keyword);
+        Predicate<Mail> contentPredicate = filterByContent(keyword);
 
-            return subjectPredicate.or(contentPredicate);
+        return subjectPredicate.or(contentPredicate);
     }
 
     public static Predicate<Mail> filterBySubjectAndRemitent(String subjectKeyword, String remitentEmail) {
