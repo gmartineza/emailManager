@@ -1,9 +1,18 @@
 package ucp.gmartineza.emailmanager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Mailman {
-    List<MailBox> mailBoxes;
+    List<MailBox> mailBoxes = new ArrayList<>();
+
+    public Mailman(MailBox mailBox){
+        this.mailBoxes.add(mailBox);
+    }
+
+    public Mailman(List<MailBox> mailBox){
+        this.mailBoxes = mailBox;
+    }
 
     public List<MailBox> getMailBoxes() {
         return mailBoxes;

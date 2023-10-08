@@ -1,10 +1,11 @@
 package ucp.gmartineza.emailmanager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MailBox {
     Contact owner;
-    List<Mail> mails;
+    List<Mail> mails = new ArrayList<>();
     boolean isInbox;
 
     public MailBox(Contact owner, List<Mail> mails, boolean isInbox){
