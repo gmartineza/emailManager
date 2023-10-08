@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mailman {
-<span class="pc" id="L7">    List&lt;MailBox&gt; mailBoxes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L7">    List&lt;MailBox&gt; mailBoxes = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L9">    public Mailman(MailBox mailBox){</span>
-<span class="nc" id="L10">        this.mailBoxes.add(mailBox);</span>
-<span class="nc" id="L11">    }</span>
+    //public Mailman(MailBox mailBox){
+    //    this.mailBoxes.add(mailBox);
+    //}
 
 <span class="fc" id="L13">    public Mailman(List&lt;MailBox&gt; mailBox){</span>
 <span class="fc" id="L14">        this.mailBoxes = mailBox;</span>
@@ -18,9 +18,9 @@ public class Mailman {
 <span class="fc" id="L18">        return mailBoxes;</span>
     }
 
-    public void addMailBox(MailBox mailBox){
-<span class="nc" id="L22">        mailBoxes.add(mailBox);</span>
-<span class="nc" id="L23">    }</span>
+    //public void addMailBox(MailBox mailBox){
+    //    mailBoxes.add(mailBox);
+    //}
 
     private int searchMailBox(Contact contact, boolean isInbox){
 <span class="fc" id="L26">        String emailAddress = contact.getEmailAddress();</span>

@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Filter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">emailmanager</a> &gt; <a href="index.source.html" class="el_package">ucp.gmartineza.emailmanager</a> &gt; <span class="el_source">Filter.java</span></div><h1>Filter.java</h1><pre class="source lang-java linenums">package ucp.gmartineza.emailmanager;
 
-<span class="nc" id="L3">public class Filter {</span>
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
+<span class="nc" id="L7">public class Filter {</span>
+    public static Predicate&lt;Mail&gt; filterBySubject(String subject) {
+<span class="fc" id="L9">        return mail -&gt; mail.getSubject().contains(subject);</span>
+    }
+
+    public static Predicate&lt;Mail&gt; filterByContent(String content) {
+<span class="nc" id="L13">        return mail -&gt; mail.getContent().contains(content);</span>
+    }
+
+    public static Predicate&lt;Mail&gt; filterByRemitentEmail(String emailAddress) {
+<span class="nc" id="L17">        return mail -&gt; mail.getRemitent().getEmailAddress().equals(emailAddress);</span>
+    }
+
+    public static Predicate&lt;Mail&gt; filterByDestinataryEmail(String emailAddress) {
+<span class="nc" id="L21">        return mail -&gt; mail.getDestinatary().stream().anyMatch(contact -&gt; contact.getEmailAddress().equals(emailAddress));</span>
+    }
+
+    public static Predicate&lt;Mail&gt; filterBySubjectAndContent(String subject, String content) {
+<span class="nc" id="L25">        Predicate&lt;Mail&gt; subjectPredicate = filterBySubject(subject);</span>
+<span class="nc" id="L26">        Predicate&lt;Mail&gt; contentPredicate = filterByContent(content);</span>
+<span class="nc" id="L27">        return subjectPredicate.and(contentPredicate);</span>
+    }
+
+    public static List&lt;Mail&gt; applyFilter(List&lt;Mail&gt; mails, Predicate&lt;Mail&gt; filterPredicate) {
+<span class="fc" id="L31">        return mails.stream().filter(filterPredicate).collect(Collectors.toList());</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

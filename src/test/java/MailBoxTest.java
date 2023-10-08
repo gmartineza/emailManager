@@ -26,6 +26,6 @@ public class MailBoxTest {
 
         MailBox outBox = new MailBox(remitent, mails, false);
         
-        assertNotNull(outBox);
+        assertNotNull(outBox.getMails());
     }
 }
