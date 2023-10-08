@@ -21,13 +21,13 @@ public class FilterTest {
                            "Friday meeting",
                            "second content");
 
-        List<Mail> mails = new ArrayList<>();
-        mails.add(m1);
-        mails.add(m2);
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
 
-        List<Mail> filteredBySubject = Filter.applyFilter(mails, Filter.filterBySubject("meeting"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterBySubject("meeting"));
 
-        assertEquals(mails, filteredBySubject);
+        assertEquals(actualMails, expectedMails);
     }
 
     @Test
@@ -45,14 +45,14 @@ public class FilterTest {
                            "Friday meeting",
                            "second content");
 
-        List<Mail> mails = new ArrayList<>();
-        mails.add(m1);
-        mails.add(m2);
-        mails.add(m3);
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
 
-        List<Mail> filteredByContent = Filter.applyFilter(mails, Filter.filterByContent("content"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByContent("content"));
 
-        assertEquals(mails, filteredByContent);
+        assertEquals(actualMails, expectedMails);
     }
 }
 
