@@ -31,5 +31,5 @@ Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
 
 ## UML
 
-![emailManager-UML-20231008T2335 drawio](https://github.com/gmartineza/emailManager/assets/68785609/a7f4d76a-b1fa-48b1-b450-2ca0c4c654ab)
+![UML-TP2-PLPII](https://github.com/gmartineza/emailManager/assets/68785609/4aab136b-de64-480c-b904-3be099513945)
 
