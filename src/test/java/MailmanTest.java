@@ -9,6 +9,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MailmanTest {
     @Test
@@ -42,7 +43,7 @@ public class MailmanTest {
         mailman.sendMail(mail1);
     }
 
-    @Test
+    @Test (expected = NoSuchElementException.class)
     public void failToSendMailTest() {
         Contact r = new Contact("someone@mail.com");
         Contact d1 = new Contact("otherone@mail.com");
