@@ -6,14 +6,14 @@ public class ContactTest {
     public void InstantiateContactsTest(){
     Contact fullContact = new Contact("mrbeast@yahoo.org", "Michael Jackson");
     Contact emailOnlyContact = new Contact("mrbeast@yahoo.org");
-    assertNotNull(fullContact);
-    assertNotNull(emailOnlyContact);
-    assertNotEquals(fullContact, emailOnlyContact);
+    assertEquals("mrbeast@yahoo.org", fullContact.getEmailAddress());
+    assertEquals("Michael Jackson", fullContact.getName());
+    assertEquals("mrbeast@yahoo.org", emailOnlyContact.getEmailAddress());
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void InvalidContactTest(){
         Contact contact = new Contact("google.com");
-        assertNotNull(contact);
+        assertNull(contact);
     }
 }
