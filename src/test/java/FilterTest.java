@@ -40,26 +40,103 @@ public class FilterTest {
     public void filterByContentTest(){
         Mail m1 = new Mail(new Contact("a@mail.com"),
                            new ArrayList<>(),
-                           "Sunday meeting",
-                           "content");
+                           ".",
+                           "search");
         Mail m2 = new Mail(new Contact("b@mail.com"),
                            new ArrayList<>(),
-                           "Friday meeting",
-                           "second content");
+                           ".",
+                           "search");
         Mail m3 = new Mail(new Contact("c@mail.com"),
                            new ArrayList<>(),
-                           "iunno",
-                           "we do not have the capacities");
+                           ".",
+                           ".");
 
         List<Mail> actualMails = new ArrayList<>();
         actualMails.add(m1);
         actualMails.add(m2);
         actualMails.add(m3);
 
-        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByContent("content"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByContent("search"));
+        actualMails.remove(2);
+
+        assertEquals(actualMails, expectedMails);
+    }
+
+    @Test
+    public void filterByRemitentTest() {
+        Mail m1 = new Mail(new Contact("a@mail.com"),
+                           new ArrayList<>(),
+                           "s",
+                           "c");
+        Mail m2 = new Mail(new Contact("a@mail.com"),
+                           new ArrayList<>(),
+                           "s",
+                           "c");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new ArrayList<>(),
+                           "s",
+                           "c");
+
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
+
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByRemitent("a@mail.com"));
+        actualMails.remove(2);
+
+        assertEquals(actualMails, expectedMails);
+    }
+
+    @Test
+    public void filterByDestinataryTest() {
+        Mail m1 = new Mail(new Contact("a@mail.com"),
+                           new Contact("b@mail.com"),
+                           "s",
+                           "c");
+        Mail m2 = new Mail(new Contact("a@mail.com"),
+                           new Contact("b@mail.com"),
+                           "s",
+                           "c");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new Contact("d@mail.com"),
+                           "s",
+                           "c");
+
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
+
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByDestinatary("b@mail.com"));
+        actualMails.remove(2);
+
+        assertEquals(actualMails, expectedMails);
+    }
+
+    @Test
+    public void filterBySubjectOrContentTest() {
+        Mail m1 = new Mail(new Contact("a@mail.com"),
+                           new Contact("b@mail.com"),
+                           "s",
+                           "c");
+        Mail m2 = new Mail(new Contact("a@mail.com"),
+                           new Contact("b@mail.com"),
+                           "s",
+                           "c");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new Contact("d@mail.com"),
+                           "s",
+                           "c");
+
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
+
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByDestinatary("b@mail.com"));
         actualMails.remove(2);
 
         assertEquals(actualMails, expectedMails);
     }
 }
-
