@@ -14,12 +14,12 @@ public class FilterTest {
     public void filterBySubjectTest() {
         Mail m1 = new Mail(new Contact("a@mail.com"),
                            new ArrayList<>(),
-                           "Sunday meeting",
-                           "content");
+                           "search",
+                           ".");
         Mail m2 = new Mail(new Contact("b@mail.com"),
                            new ArrayList<>(),
-                           "Friday meeting",
-                           "second content");
+                           "search",
+                           ".");
         Mail m3 = new Mail(new Contact("c@mail.com"),
                            new ArrayList<>(),
                            "Previa eterna",
@@ -30,7 +30,7 @@ public class FilterTest {
         actualMails.add(m2);
         actualMails.add(m3);
 
-        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterBySubject("meeting"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterBySubject("search"));
         actualMails.remove(m3);
 
         assertEquals(actualMails, expectedMails);
@@ -64,11 +64,11 @@ public class FilterTest {
 
     @Test
     public void filterByRemitentTest() {
-        Mail m1 = new Mail(new Contact("a@mail.com"),
+        Mail m1 = new Mail(new Contact("search@mail.com"),
                            new ArrayList<>(),
                            "s",
                            "c");
-        Mail m2 = new Mail(new Contact("a@mail.com"),
+        Mail m2 = new Mail(new Contact("search@mail.com"),
                            new ArrayList<>(),
                            "s",
                            "c");
@@ -82,7 +82,7 @@ public class FilterTest {
         actualMails.add(m2);
         actualMails.add(m3);
 
-        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByRemitent("a@mail.com"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByRemitent("search@mail.com"));
         actualMails.remove(2);
 
         assertEquals(actualMails, expectedMails);
@@ -91,11 +91,11 @@ public class FilterTest {
     @Test
     public void filterByDestinataryTest() {
         Mail m1 = new Mail(new Contact("a@mail.com"),
-                           new Contact("b@mail.com"),
+                           new Contact("search@mail.com"),
                            "s",
                            "c");
         Mail m2 = new Mail(new Contact("a@mail.com"),
-                           new Contact("b@mail.com"),
+                           new Contact("search@mail.com"),
                            "s",
                            "c");
         Mail m3 = new Mail(new Contact("c@mail.com"),
@@ -108,7 +108,7 @@ public class FilterTest {
         actualMails.add(m2);
         actualMails.add(m3);
 
-        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByDestinatary("b@mail.com"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByDestinatary("search@mail.com"));
         actualMails.remove(2);
 
         assertEquals(actualMails, expectedMails);
@@ -117,24 +117,88 @@ public class FilterTest {
     @Test
     public void filterBySubjectOrContentTest() {
         Mail m1 = new Mail(new Contact("a@mail.com"),
-                           new Contact("b@mail.com"),
-                           "s",
-                           "c");
+                           new ArrayList<>(),
+                           "search",
+                           ".");
         Mail m2 = new Mail(new Contact("a@mail.com"),
-                           new Contact("b@mail.com"),
-                           "s",
-                           "c");
+                           new ArrayList<>(),
+                           ".",
+                           "search");
         Mail m3 = new Mail(new Contact("c@mail.com"),
-                           new Contact("d@mail.com"),
-                           "s",
-                           "c");
+                           new ArrayList<>(),
+                           ".",
+                           ".");
 
         List<Mail> actualMails = new ArrayList<>();
         actualMails.add(m1);
         actualMails.add(m2);
         actualMails.add(m3);
 
-        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByDestinatary("b@mail.com"));
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterBySubjectOrContent("search"));
+        actualMails.remove(2);
+
+        assertEquals(actualMails, expectedMails);
+    }
+
+    @Test
+    public void filterBySubjectAndRemitentTest() {
+        Mail m1 = new Mail(new Contact("search@mail.com"),
+                           new ArrayList<>(),
+                           "search",
+                           ".");
+        Mail m2 = new Mail(new Contact("search@mail.com"),
+                           new ArrayList<>(),
+                           "search",
+                           ".");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new ArrayList<>(),
+                           "search",
+                           ".");
+        Mail m4 = new Mail(new Contact("search@mail.com"),
+                           new ArrayList<>(),
+                           ".",
+                           ".");
+
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
+        actualMails.add(m4);
+
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterBySubjectAndRemitent("search", "search@mail.com"));
+        actualMails.remove(2);
+        actualMails.remove(2);
+
+        assertEquals(actualMails, expectedMails);
+    }
+
+    @Test
+    public void filterByContentAndRemitentTest() {
+        Mail m1 = new Mail(new Contact("search@mail.com"),
+                           new ArrayList<>(),
+                           ".",
+                           "search");
+        Mail m2 = new Mail(new Contact("search@mail.com"),
+                           new ArrayList<>(),
+                           ".",
+                           "search");
+        Mail m3 = new Mail(new Contact("c@mail.com"),
+                           new ArrayList<>(),
+                           ".",
+                           "search");
+        Mail m4 = new Mail(new Contact("search@mail.com"),
+                           new ArrayList<>(),
+                           ".",
+                           ".");
+
+        List<Mail> actualMails = new ArrayList<>();
+        actualMails.add(m1);
+        actualMails.add(m2);
+        actualMails.add(m3);
+        actualMails.add(m4);
+
+        List<Mail> expectedMails = Filter.applyFilter(actualMails, Filter.filterByContentAndRemitent("search", "search@mail.com"));
+        actualMails.remove(2);
         actualMails.remove(2);
 
         assertEquals(actualMails, expectedMails);

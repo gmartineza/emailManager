@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FilterTest" time="0.011" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FilterTest" time="0.034" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\GMARTI~1\AppData\Local\Temp\surefire1087858859641119473\surefirebooter11396765316049501626.jar C:\Users\gmartineza\AppData\Local\Temp\surefire1087858859641119473 2023-10-09T00-09-50_799-jvmRun1 surefire12442457129925796148tmp surefire_011692714743634755027tmp"/>
+    <property name="sun.java.command" value="C:\Users\GMARTI~1\AppData\Local\Temp\surefire18117144088800558116\surefirebooter12543808051077001527.jar C:\Users\gmartineza\AppData\Local\Temp\surefire18117144088800558116 2023-10-09T00-31-29_892-jvmRun1 surefire1484907056046167607tmp surefire_04483571215787604331tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\gmartineza\code\emailManager\target\test-classes;c:\Users\gmartineza\code\emailManager\target\classes;C:\Users\gmartineza\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\gmartineza\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\GMARTI~1\AppData\Local\Temp\surefire1087858859641119473\surefirebooter11396765316049501626.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\GMARTI~1\AppData\Local\Temp\surefire18117144088800558116\surefirebooter12543808051077001527.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21+35-LTS-2513"/>
@@ -58,9 +58,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="filterByDestinataryTest" classname="FilterTest" time="0"/>
+  <testcase name="filterByDestinataryTest" classname="FilterTest" time="0.001"/>
   <testcase name="filterByRemitentTest" classname="FilterTest" time="0"/>
-  <testcase name="filterBySubjectTest" classname="FilterTest" time="0.003"/>
-  <testcase name="filterByContentTest" classname="FilterTest" time="0.001"/>
-  <testcase name="filterBySubjectOrContentTest" classname="FilterTest" time="0.001"/>
+  <testcase name="filterByContentAndRemitentTest" classname="FilterTest" time="0"/>
+  <testcase name="filterBySubjectTest" classname="FilterTest" time="0"/>
+  <testcase name="filterByContentTest" classname="FilterTest" time="0"/>
+  <testcase name="filterBySubjectAndRemitentTest" classname="FilterTest" time="0"/>
+  <testcase name="filterBySubjectOrContentTest" classname="FilterTest" time="0"/>
 </testsuite>
