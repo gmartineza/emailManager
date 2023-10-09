@@ -2,6 +2,7 @@ package ucp.gmartineza.emailmanager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Mailman {
     private List<MailBox> mailBoxes = new ArrayList<>();
@@ -31,7 +32,7 @@ public class Mailman {
             }
             position++;
         }
-        return -1;
+        throw new NoSuchElementException("MailBox: did not find mailbox for params"+contact+isInbox);
     }
 
     public void sendMail(Mail mail){
