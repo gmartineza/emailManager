@@ -1,10 +1,11 @@
 package ucp.gmartineza.emailmanager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Mail {
     private Contact remitent;
-    private List<Contact> destinatary;
+    private List<Contact> destinatary = new ArrayList<>();
     private String subject;
     private String content;
 

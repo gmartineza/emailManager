@@ -7,10 +7,6 @@ import java.util.NoSuchElementException;
 public class Mailman {
     private List<MailBox> mailBoxes = new ArrayList<>();
 
-    //public Mailman(MailBox mailBox){
-    //    this.mailBoxes.add(mailBox);
-    //}
-
     public Mailman(List<MailBox> mailBox){
         this.mailBoxes = mailBox;
     }
@@ -18,10 +14,6 @@ public class Mailman {
     public List<MailBox> getMailBoxes() {
         return mailBoxes;
     }
-
-    //public void addMailBox(MailBox mailBox){
-    //    mailBoxes.add(mailBox);
-    //}
 
     private int searchMailBox(Contact contact, boolean isInbox){
         String emailAddress = contact.getEmailAddress();

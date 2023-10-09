@@ -10,12 +10,29 @@ import ucp.gmartineza.emailmanager.Mail;
 public class MailTest {
     @Test
     public void SendSingleDestinataryTest(){
-        Contact remitent = new Contact("someone@mail.com");
-        Contact destinatary = new Contact("otherone@mail.com");
-        List<Contact> destinataries = new ArrayList<Contact>();
-        destinataries.add(destinatary);
-        Mail mail = new Mail(remitent, destinataries, "subject", "content");
+        Contact r = new Contact("someone@mail.com");
+        Contact d = new Contact("otherone@mail.com");
+        Mail mail = new Mail(r, d, "subject", "content");
     
-        assertEquals(mail.getRemitent().getEmailAddress(), remitent.getEmailAddress());
+        assertEquals(mail.getRemitent().getEmailAddress(), r.getEmailAddress());
+        assertEquals(mail.getDestinatary().get(0), d);
+    }
+
+    @Test
+    public void SendMultipleDestinatariesTest(){
+        Contact r = new Contact("someone@mail.com");
+        Contact d1 = new Contact("otherone@mail.com");
+        Contact d2 = new Contact("othertwo@mail.com");
+        Contact d3 = new Contact("tree@cedar.com");
+
+        List<Contact> dList = new ArrayList<Contact>();
+        dList.add(d1);
+        dList.add(d2);
+        dList.add(d3);
+
+        Mail mail = new Mail(r, dList, "subject", "content");
+    
+        assertEquals(mail.getRemitent().getEmailAddress(), r.getEmailAddress());
+        assertEquals(mail.getDestinatary(), dList);
     }
 }
